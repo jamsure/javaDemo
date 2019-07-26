@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.demo.mapper.TbCameraMapper">
+
+    <select id="get" resultType="com.java.demo.entity.TbCamera">
+        select
+        a.key_id AS "keyId",
+        a.code AS "code",
+        a.name AS "name",
+        a.aliasname AS "aliasname",
+        a.device_id AS "deviceId",
+        a.channel_num AS "channelNum",
+        a.sms_id AS "smsId",
+        a.bak_sms_id AS "bakSmsId",
+        a.rms_id AS "rmsId",
+        a.bak_rms_id AS "bakRmsId",
+        a.stream_type AS "streamType",
+        a.protocol AS "protocol",
+        a.url AS "url",
+        a.reservered1 AS "reservered1",
+        a.reservered2 AS "reservered2",
+        a.stream_format AS "streamFormat"
+        from tb_camera a
+        <where>
+            <if test="keyId != null and keyId != ''">
+                and key_id = #{keyId}
+            </if>
+        </where>
+    </select>
+
+    <select id="getList" resultType="com.java.demo.entity.TbCamera">
+        select
+        a.key_id AS "keyId",
+        a.code AS "code",
+        a.name AS "name",
+        a.aliasname AS "aliasname",
+        a.device_id AS "deviceId",
+        a.channel_num AS "channelNum",
+        a.sms_id AS "smsId",
+        a.bak_sms_id AS "bakSmsId",
+        a.rms_id AS "rmsId",
+        a.bak_rms_id AS "bakRmsId",
+        a.stream_type AS "streamType",
+        a.protocol AS "protocol",
+        a.url AS "url",
+        a.reservered1 AS "reservered1",
+        a.reservered2 AS "reservered2",
+        a.stream_format AS "streamFormat"
+        from tb_camera a
+        <where>
+            <if test="keyId != null and keyId != ''">
+                and key_id = #{keyId}
+            </if>
+        </where>
+    </select>
+
+    <select id="getAreaList" resultType="java.util.Map">
+        select
+          a.key_id,
+          a.area_type,
+          a.parent_id,
+          a.area_code,
+          a.area_description,
+          a.create_date,
+          a.name,
+          a.parent_ids,
+          a.sort_field,
+          a.model_type,
+          a.station_id,
+          a.volt_grade,
+          a.latitude,
+          a.longitude
+        from tb_area a
+
+
+    </select>
+
+    <select id="getDvrList" resultType="java.util.Map">
+       select
+          a.key_id,
+          a.code,
+          a.name,
+          a.aliasname,
+          a.area_id,
+          a.dms_id,
+          a.address,
+          a.port,
+          a.username,
+          a.password,
+          a.device_type,
+          a.subtype,
+          a.status,
+          a.reservered1,
+          a.reservered2,
+          a.path
+        from tb_device a
+
+
+    </select>
+
+    <select id="getCameraList" resultType="java.util.Map">
+       select
+          a.key_id,
+          a.code,
+          a.name,
+          a.aliasname,
+          a.device_id,
+          a.channel_num,
+          a.sms_id,
+          a.bak_sms_id,
+          a.rms_id,
+          a.bak_rms_id,
+          a.stream_type,
+          a.protocol,
+          a.url,
+          a.reservered1,
+          a.reservered2,
+          a.stream_format
+        from tb_camera a
+    </select>
+
+    <select id="getPresetList" resultType="java.util.Map">
+        select
+             a.key_id,
+             a.camera_id,
+             a.preset_num,
+             a.preset_name,
+             a.maintenance_user,
+             a.maintenance_time,
+             a.is_use,
+             a.reservered1,
+             a.reservered2
+        from tb_camera_preset a
+    </select>
+
+
+</mapper>
