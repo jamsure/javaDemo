@@ -1,5 +1,6 @@
 package com.java.demo.common;
 
+import com.java.demo.webservice.WSClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
@@ -27,5 +28,9 @@ public class SaticScheduleTask {
     @Scheduled(fixedRate = 5000)
     private void configureTasks() {
         System.out.println("merge 更新记录数 ：");
+        String callMethod = WSClient.callMethod("getArea");
+        String callMethod1 = WSClient.callMethod("getDvr");
+        String callMethod2 = WSClient.callMethod("getCamera");
+        String callMethod3 = WSClient.callMethod("getPreset");
     }
 }
